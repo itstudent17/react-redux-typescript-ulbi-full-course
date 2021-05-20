@@ -1,14 +1,4 @@
-/*
-const FETCH_USERS = 'FETCH_USERS';
-const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
-const FETCH_USERS_ERROR = 'FETCH_USERS_ERROR';
-*/
-
-enum UserActionsType {
-    FETCH_USERS = 'FETCH_USERS',
-    FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
-    FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
-}
+import {UserActionsType, UserAction} from "../../types/users";
 
 interface UserState {
     users: Array<any>,
@@ -22,28 +12,6 @@ const initialState: UserState = {
     loading: false,
     error: null,
 }
-
-// interface UserAction {
-//     type: string,
-//     payload: any,
-//     errorMessage?: string
-// }
-
-interface FetchUsersAction {
-    type: UserActionsType.FETCH_USERS,
-}
-
-interface FetchUsersSuccessAction {
-    type: UserActionsType.FETCH_USERS_SUCCESS,
-    payload: any[]
-}
-
-interface FetchUsersErrorAction {
-    type: UserActionsType.FETCH_USERS_ERROR,
-    payload: string
-}
-
-type UserAction = FetchUsersAction | FetchUsersErrorAction | FetchUsersSuccessAction
 
 export const userReducer = (state = initialState, action: UserAction): UserState => {
     switch (action.type) {
